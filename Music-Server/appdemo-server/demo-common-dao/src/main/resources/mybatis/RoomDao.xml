@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.netease.mmc.demo.dao.RoomDao">
+  <resultMap id="roomDOMap" type="com.netease.mmc.demo.dao.domain.RoomDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="teacher_accid" jdbcType="VARCHAR" property="teacherAccid" />
+    <result column="student_accid" jdbcType="VARCHAR" property="studentAccid" />
+    <result column="expired_at" jdbcType="BIGINT" property="expiredAt" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="roomDO_Base_Column_List">
+    id, `name`, `status`, teacher_accid, student_accid, expired_at, created_at, updated_at
+  </sql>
+  <select id="findByPrimaryKey" parameterType="java.lang.Long" resultMap="roomDOMap">
+    select 
+    <include refid="roomDO_Base_Column_List" />
+    from demo_music_room
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="listByStudentAccid" resultMap="roomDOMap">
+      SELECT
+      <include refid="roomDO_Base_Column_List"/>
+      FROM demo_music_room
+      WHERE student_accid = #{accid} AND `status` = 0 AND expired_at > #{time}
+    </select>
+  <select id="listByTeacherAccid" resultMap="roomDOMap">
+    SELECT
+    <include refid="roomDO_Base_Column_List"/>
+    FROM demo_music_room
+    WHERE teacher_accid = #{accid} AND `status` = 0 AND expired_at > #{time}
+  </select>
+  <select id="countByStudentAccid" resultType="java.lang.Integer">
+    SELECT
+      count(*)
+    FROM demo_music_room
+    WHERE student_accid = #{accid} AND `status` = 0 AND expired_at > #{time}
+  </select>
+  <select id="existsByRoomIdAndTeacherAccid" resultType="java.lang.Boolean">
+    SELECT EXISTS (SELECT 1 from demo_music_room where id = #{roomId} AND status = 0 AND teacher_accid = #{accid} limit 1)
+  </select>
+  <insert id="insertSelective" parameterType="com.netease.mmc.demo.dao.domain.RoomDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into demo_music_room
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="teacherAccid != null">
+        teacher_accid,
+      </if>
+      <if test="studentAccid != null">
+        student_accid,
+      </if>
+      <if test="expiredAt != null">
+        expired_at,
+      </if>
+      created_at, updated_at, 
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="teacherAccid != null">
+        #{teacherAccid,jdbcType=VARCHAR},
+      </if>
+      <if test="studentAccid != null">
+        #{studentAccid,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredAt != null">
+        #{expiredAt,jdbcType=BIGINT},
+      </if>
+      <choose>
+        <when test="createdAt != null">
+          #{createdAt},
+        </when>
+        <otherwise>
+          now(),
+        </otherwise>
+      </choose>
+      <choose>
+        <when test="updatedAt != null">
+          #{updatedAt},
+        </when>
+        <otherwise>
+          now(),
+        </otherwise>
+      </choose>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netease.mmc.demo.dao.domain.RoomDO">
+    update demo_music_room
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="teacherAccid != null">
+        teacher_accid = #{teacherAccid,jdbcType=VARCHAR},
+      </if>
+      <if test="studentAccid != null">
+        student_accid = #{studentAccid,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredAt != null">
+        expired_at = #{expiredAt,jdbcType=BIGINT},
+      </if>
+      <choose>
+        <when test="updatedAt != null">
+          updated_at = #{updatedAt},
+        </when>
+        <otherwise>
+          updated_at = now(),
+        </otherwise>
+      </choose>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateRoomStatus">
+    UPDATE demo_music_room
+    SET status = #{status}
+    WHERE id = #{roomId}
+  </update>
+</mapper>

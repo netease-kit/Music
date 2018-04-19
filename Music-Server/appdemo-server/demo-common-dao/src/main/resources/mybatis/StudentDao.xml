@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.netease.mmc.demo.dao.StudentDao">
+  <resultMap id="studentDOMap" type="com.netease.mmc.demo.dao.domain.StudentDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="accid" jdbcType="VARCHAR" property="accid" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="im_token" jdbcType="VARCHAR" property="imToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="studentDO_Base_Column_List">
+    id, accid, nickname, `password`, im_token, created_at, updated_at
+  </sql>
+  <select id="findByPrimaryKey" parameterType="java.lang.Long" resultMap="studentDOMap">
+    select 
+    <include refid="studentDO_Base_Column_List" />
+    from demo_music_student
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="existsStudent" resultType="java.lang.Boolean">
+      SELECT EXISTS (SELECT 1 from demo_music_student where accid = #{accid} limit 1)
+    </select>
+  <select id="findByAccid" resultMap="studentDOMap">
+    SELECT
+    <include refid="studentDO_Base_Column_List" />
+    FROM demo_music_student
+    WHERE accid = #{accid}
+  </select>
+  <insert id="insertSelective" parameterType="com.netease.mmc.demo.dao.domain.StudentDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into demo_music_student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accid != null">
+        accid,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="imToken != null">
+        im_token,
+      </if>
+      created_at, updated_at, 
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accid != null">
+        #{accid,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="imToken != null">
+        #{imToken,jdbcType=VARCHAR},
+      </if>
+      <choose>
+        <when test="createdAt != null">
+          #{createdAt},
+        </when>
+        <otherwise>
+          now(),
+        </otherwise>
+      </choose>
+      <choose>
+        <when test="updatedAt != null">
+          #{updatedAt},
+        </when>
+        <otherwise>
+          now(),
+        </otherwise>
+      </choose>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netease.mmc.demo.dao.domain.StudentDO">
+    update demo_music_student
+    <set>
+      <if test="accid != null">
+        accid = #{accid,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="imToken != null">
+        im_token = #{imToken,jdbcType=VARCHAR},
+      </if>
+      <choose>
+        <when test="updatedAt != null">
+          updated_at = #{updatedAt},
+        </when>
+        <otherwise>
+          updated_at = now(),
+        </otherwise>
+      </choose>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
