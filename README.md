@@ -46,7 +46,9 @@ Demo实现逻辑：
 - 打开降噪语音处理 NRtcParameters#KEY_AUDIO_EFFECT_NOISE_SUPPRESSOR
  
 ### 4．各端说明文档
-iOS说明文档：
-Android说明文档：
-Demo Server文档：
+[iOS说明文档](./Music-Client-iOS/README.md)
+
+[Android说明文档](./Music-Client-Android/README.md)
+
+[Demo Server文档](./Music-Server/README.md)
  
