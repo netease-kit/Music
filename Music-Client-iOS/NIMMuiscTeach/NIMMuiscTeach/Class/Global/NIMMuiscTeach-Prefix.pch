@@ -1,0 +1,35 @@
+//
+//  NIMMuiscTeach-Prefix.h
+//  NIMMuiscTeach
+//
+//  Created by chris on 2018/3/30.
+//  Copyright © 2018年 netease. All rights reserved.
+//
+
+#ifndef NIMMuiscTeach_Prefix_h
+#define NIMMuiscTeach_Prefix_h
+
+#ifdef __OBJC__
+#import "NTESBasicDefine.h"
+#import "NTESDDLogManager.h"
+#import "NTESEnum.h"
+
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
+
+#import "UIView+NTES.h"
+#import "UIView+Toast.h"
+#import "UIImageView+WebCache.h"
+#import "SVProgressHUD.h"
+#import "UIButton+NTESVerticalLayout.h"
+#import "UIAlertController+NTESBlock.h"
+#import "NSDictionary+NTESJson.h"
+#import "RealReachability.h"
+
+#define NTES_USE_CLEAR_BAR - (BOOL)useClearBar{return YES;}
+
+#define NTESNotificationLogout @"NTESNotificationLogout"
+#define NTESNotificationClassover @"NTESNotificationClassover"
+
+#endif
+#endif /* NIMMuiscTeach_Prefix_h */

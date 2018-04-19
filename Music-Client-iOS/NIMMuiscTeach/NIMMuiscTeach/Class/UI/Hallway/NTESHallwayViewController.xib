@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NTESHallwayViewController">
+            <connections>
+                <outlet property="reserveInfoLabel" destination="fYc-rY-f1l" id="qlx-Wd-tzb"/>
+                <outlet property="studentGuideAfterReserve" destination="A9Y-Cz-ulq" id="8Li-dJ-Iqs"/>
+                <outlet property="studentGuideBeforeReserve" destination="vJG-K7-U4j" id="pLZ-8R-KLR"/>
+                <outlet property="teacherGuideAfterReserve" destination="3dX-3g-0Fw" id="Th1-yi-SzL"/>
+                <outlet property="teacherGuideBeforeReserve" destination="dFX-ax-VD7" id="XnR-Jy-Fwl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJG-K7-U4j">
+                    <rect key="frame" x="36" y="90" width="249" height="360"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hallway_process" translatesAutoresizingMaskIntoConstraints="NO" id="68G-Rm-JO5">
+                            <rect key="frame" x="59" y="0.0" width="132" height="119"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRm-Oz-k3b" userLabel="在线音乐教学demo体验流程">
+                            <rect key="frame" x="11" y="162" width="217" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">在线音乐教学demo体验流程
+
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-QK-4h1">
+                            <rect key="frame" x="11" y="198" width="240" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">step 1. 点击预约上课
+
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhM-p2-l2F">
+                            <rect key="frame" x="11" y="234" width="240" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">step 2. 预约成功，获取老师登录账号
+
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx5-GX-n5z" userLabel="step 3. 等待老师登录并进入房间">
+                            <rect key="frame" x="11" y="270" width="240" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">step 3. 等待老师登录并进入房间
+
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgi-xL-MKI">
+                            <rect key="frame" x="11" y="306" width="240" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">step 4. 进入房间开始上课
+
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="249" id="JsK-Jk-7JE"/>
+                        <constraint firstAttribute="height" constant="360" id="kYk-4A-eQI"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9Y-Cz-ulq">
+                    <rect key="frame" x="24" y="90" width="271" height="315"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hallway_succ" translatesAutoresizingMaskIntoConstraints="NO" id="LZC-qO-Ef0">
+                            <rect key="frame" x="69" y="0.0" width="132" height="119"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6w-ds-yXg">
+                            <rect key="frame" x="31" y="162" width="191" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">您已成功预约老师的课程
+
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gim-Mn-Dh8">
+                            <rect key="frame" x="76" y="198" width="104" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="老师如何登录"/>
+                            <connections>
+                                <action selector="teacherLoginTip:" destination="-1" eventType="touchUpInside" id="FyM-OS-IpH"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="271" id="gch-aB-F6r"/>
+                        <constraint firstAttribute="height" constant="315" id="sVQ-bZ-ZFa"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFX-ax-VD7">
+                    <rect key="frame" x="15" y="90" width="290" height="313"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hallway_none" translatesAutoresizingMaskIntoConstraints="NO" id="9nm-lx-t1B">
+                            <rect key="frame" x="79" y="0.0" width="132" height="119"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfW-sP-XuB">
+                            <rect key="frame" x="46" y="162" width="195" height="96"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">当前无任何课程，
+
+请等待平台分配课程</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="290" id="Q3z-Tw-IWG"/>
+                        <constraint firstAttribute="height" constant="313" id="nhA-ip-TMy"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dX-3g-0Fw">
+                    <rect key="frame" x="14" y="90" width="291" height="360"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hallway_appoint" translatesAutoresizingMaskIntoConstraints="NO" id="7WL-NY-frM">
+                            <rect key="frame" x="79" y="0.0" width="132" height="119"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-rY-f1l">
+                            <rect key="frame" x="-4" y="180" width="295" height="102"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">学生（周拉斯爱学习）预约了您的课程
+
+点击进入教室开始上课
+
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="291" id="MDJ-cx-xnv"/>
+                        <constraint firstAttribute="height" constant="360" id="RcO-V9-Vpu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vJG-K7-U4j" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="90" id="AU9-b8-iJF"/>
+                <constraint firstItem="A9Y-Cz-ulq" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="70" id="Er3-XJ-60i"/>
+                <constraint firstItem="3dX-3g-0Fw" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="MvY-um-5iT"/>
+                <constraint firstItem="A9Y-Cz-ulq" firstAttribute="top" secondItem="3dX-3g-0Fw" secondAttribute="top" id="QUT-Uh-rPH"/>
+                <constraint firstItem="vJG-K7-U4j" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" constant="0.5" id="oD0-Sx-ucF"/>
+                <constraint firstItem="A9Y-Cz-ulq" firstAttribute="top" secondItem="dFX-ax-VD7" secondAttribute="top" id="pgb-Fe-xAY"/>
+                <constraint firstItem="A9Y-Cz-ulq" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="su7-kb-q9p"/>
+                <constraint firstItem="dFX-ax-VD7" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="vMA-IE-IE6"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="22.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="hallway_appoint" width="103" height="110"/>
+        <image name="hallway_none" width="132" height="119"/>
+        <image name="hallway_process" width="114" height="124"/>
+        <image name="hallway_succ" width="132" height="120"/>
+    </resources>
+</document>
