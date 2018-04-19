@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/color_gray_1e1f20"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:showIn="@layout/room_layout">
+
+    <LinearLayout
+        android:id="@+id/video_menu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_video_menu" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视频模式"
+            android:textColor="@color/color_gray_cccccc" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/paint_menu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/paint_menu_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_pencil_menu" />
+
+        <TextView
+            android:id="@+id/paint_menu_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="画笔"
+            android:textColor="@color/color_gray_cccccc" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/voice_menu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/voice_menu_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_voice_on" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="声音"
+            android:textColor="@color/color_gray_cccccc" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/left_menu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/left_menu_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_left_menu" />
+
+        <TextView
+            android:id="@+id/left_menu_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="左翻"
+            android:textColor="@color/color_gray_cccccc" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/right_menu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/right_menu_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_right_menu" />
+
+        <TextView
+            android:id="@+id/right_menu_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="右翻"
+            android:textColor="@color/color_gray_cccccc" />
+
+    </LinearLayout>
+
+</LinearLayout>

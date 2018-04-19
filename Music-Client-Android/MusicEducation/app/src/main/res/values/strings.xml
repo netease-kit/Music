@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">音乐教学demo</string>
+    <string name="app_name_teacher">音乐教学 老师端</string>
+    <string name="app_name_student">音乐教学 学生端</string>
+
+    <string name="net_unavailable">当前网络不可用</string>
+    <string name="network_is_not_available">网络连接失败，请检查你的网络设置</string>
+    <string name="about">关于</string>
+    <string name="logout">注销</string>
+    <string name="class_is_over">下课</string>
+    <string name="get_out">退出</string>
+
+    <string name="empty"></string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="clear_empty">清空</string>
+    <string name="iknow">知道了</string>
+    <string name="net_detect_very_good">当前网络状况：极好</string>
+    <string name="net_detect_poor">当前网络状况：很好</string>
+    <string name="net_detect_bad">当前网络状况：较差</string>
+    <string name="netting_good">极好</string>
+    <string name="netting_poor">很好</string>
+    <string name="netting_bad">较差</string>
+    <string name="net_broken">离线</string>
+
+    <!-- 登陆 -->
+    <string name="login_hint_account">请输入帐号</string>
+    <string name="login_hint_password">请输入密码</string>
+    <string name="input_account">请输入帐号，限20位字母或者数字</string>
+    <string name="register_account_tip">帐号限20位字母或者数字</string>
+    <string name="input_nickname">请输入昵称，限10位汉字、字母或者数字</string>
+    <string name="register_nick_name_tip">昵称限10位汉字、字母或者数字</string>
+    <string name="input_password">请输入密码，6~20位字母或者数字</string>
+    <string name="register_password_tip">密码必须为6~20位字母或者数字</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_failed">注册失败,错误码%1$s:%2$s</string>
+    <string name="login_has_account">已有帐号？直接登录</string>
+    <string name="done">完成</string>
+    <string name="login">登录</string>
+    <string name="logining">登录中\u2026</string>
+    <string name="register">注册</string>
+    <string name="registering">注册中\u2026</string>
+    <string name="login_failed">帐号或密码错误</string>
+    <string name="kickout_notify">下线通知</string>
+    <string name="kickout_content">你的帐号被踢出下线，请确定帐号信息安全</string>
+    <string name="login_tip">*老师端无需注册，老师端账号可在学生端预约课程后获取</string>
+
+    <!-- 学生端 -->
+    <string name="student_handbook_tip">在线音乐教学demo体验流程</string>
+    <string name="student_step1">step 1. 点击预约上课</string>
+    <string name="student_step2">step 2. 预约成功，获取老师登录账号</string>
+    <string name="student_step3">step 3. 等待老师登录并进入房间</string>
+    <string name="student_step4">step 4. 进入房间开始上课</string>
+    <string name="book_class">预约上课</string>
+    <string name="book_class_success">您已成功预约%s的课程</string>
+    <string name="how_to_login">老师如何登录</string>
+    <string name="enter_room">进入教室</string>
+    <string name="please_login_tip">请在另一台设备上登录老师账号：</string>
+    <string name="teacher_info_tip">账号: %1$s \n密码: %2$s</string>
+    <string name="class_is_over_notify">本节课已结束了哦</string>
+
+    <!-- 老师端 -->
+    <string name="book_name_tip">学生（%s）预约了您的课程\n点击进入教室开始上课</string>
+    <string name="no_book_tip">当前无任何课程，\n请等待平台分配课程</string>
+</resources>

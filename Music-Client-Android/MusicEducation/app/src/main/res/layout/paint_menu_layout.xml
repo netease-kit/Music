@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/color_gray_1e1f20"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:showIn="@layout/room_layout">
+
+        <ImageView
+            android:id="@+id/paint_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_back"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp" />
+
+        <ImageView
+            android:id="@+id/red_color_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/paint_back"
+            android:background="@drawable/choose_red_circle_shape"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/yellow_color_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/red_color_image"
+            android:background="@drawable/yellow_circle_shape" />
+
+        <ImageView
+            android:id="@+id/green_color_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/yellow_color_image"
+            android:background="@drawable/green_circle_shape"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/purple_color_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/green_color_image"
+            android:background="@drawable/purple_circle_shape"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/blue_color_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/purple_color_image"
+            android:background="@drawable/blue_circle_shape"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/paint_revoke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/split"
+            android:background="@drawable/ic_revoke"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/split"
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/paint_clear"
+            android:background="@color/white" />
+
+        <ImageView
+            android:id="@+id/paint_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_clear"
+            android:padding="10dp" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

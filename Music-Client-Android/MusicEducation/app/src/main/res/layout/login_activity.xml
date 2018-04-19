@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="59dp"
+            android:background="@drawable/logo"
+            android:contentDescription="" />
+
+        <FrameLayout
+            android:id="@+id/login_register_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/logo"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="60dp">
+
+            <LinearLayout
+                android:id="@+id/login_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.netease.nim.musiceducation.common.ui.widget.ClearableEditTextWithIcon
+                    android:id="@+id/edit_login_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_white_normal"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/login_hint_account"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/color_white_66ffffff"
+                    android:textCursorDrawable="@null"
+                    android:textSize="15sp" />
+
+                <com.netease.nim.musiceducation.common.ui.widget.ClearableEditTextWithIcon
+                    android:id="@+id/edit_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_white_normal"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/login_hint_password"
+                    android:inputType="textPassword"
+                    android:longClickable="false"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/color_white_66ffffff"
+                    android:textCursorDrawable="@null"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/done"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/g_white_btn_selector"
+                    android:text="@string/login"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/register_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.netease.nim.musiceducation.common.ui.widget.ClearableEditTextWithIcon
+                    android:id="@+id/edit_register_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_white_normal"
+                    android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/input_account"
+                    android:inputType="text"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/color_white_66ffffff"
+                    android:textCursorDrawable="@null"
+                    android:textSize="15sp" />
+
+                <com.netease.nim.musiceducation.common.ui.widget.ClearableEditTextWithIcon
+                    android:id="@+id/edit_register_nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_white_normal"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/input_nickname"
+                    android:inputType="text"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/color_white_66ffffff"
+                    android:textCursorDrawable="@null"
+                    android:textSize="15sp" />
+
+                <com.netease.nim.musiceducation.common.ui.widget.ClearableEditTextWithIcon
+                    android:id="@+id/edit_register_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_white_normal"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/input_password"
+                    android:inputType="textPassword"
+                    android:longClickable="false"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/color_white_66ffffff"
+                    android:textCursorDrawable="@null"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/register_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/g_white_btn_selector"
+                    android:text="@string/done"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/register_login_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="20dip"
+            android:layout_marginBottom="50dp"
+            android:text="@string/register"
+            android:textColor="@drawable/register_tip_selector"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/login_tip"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+</LinearLayout>
