@@ -1,5 +1,5 @@
 ## 网易云信音乐教学解决方案 iOS 端实现说明
-【注】iOS demo 因为 Pods 资源较大，因此不上传 Pod 文件，使用前请先执行 pod install 命令
+【注】iOS demo 因为 Pods 资源较大，因此不上传 Pod 文件，使用前请先执行 pod install 命令,若不了解可参考 [CocoaPods 使用教程](https://cocoapods.org/?q=install)。
 ### 一）终端整体业务逻辑简介
 #### 1. 解决方案概述
 音乐教学解决方案旨在展现音乐教学场景下的音视频 SDK 能力，并为开发者提供可借鉴和集成的音乐教学 Demo。
@@ -176,11 +176,12 @@
 **老师相关**
 
 * 查询课程
+
     * 请求说明
     
-	   ```
+	```
     POST http://${Host}/teacher/room/query HTTP/1.1
-	  Content-Type: application/x-www-form-urlencoded;charset=utf-8
+	Content-Type: application/x-www-form-urlencoded;charset=utf-8
     ```
     * 参数列表
 
@@ -200,7 +201,7 @@
     
     * 请求说明
     
-	   ```
+	```
     POST http://${Host}/teacher/room/close HTTP/1.1
 	  Content-Type: application/x-www-form-urlencoded;charset=utf-8
     ```
@@ -218,11 +219,12 @@
 		|----------------------|--------------------|--------|
 		| code  | int  | 状态码 |
 		| msg | String  | 错误信息|
-	老师端下课后需要向学生发点对点的自定义广播通知，通过 NIMCustomSystemNotification 来进行发送。具体协议约定如下，具体代码实现可见 `NTES` 
+	老师端下课后需要向学生发点对点的自定义广播通知，通过 NIMCustomSystemNotification 来进行发送。具体协议约定如下： 
 	
-    ```
+```
 {"command":1, "data":{"roomId": "123"}} //123是任意房间号示例
 ```
+
 		
 #### 4. 业务层介绍
 业务层主要负责两方面工作，一是与应用服务器的交互，一是与音视频 SDK 的交互；与应用服务器的交互通过调用网络层接口返回的数据完成相应的业务逻辑。目前所有的业务要分老师端和学生端来介绍。
