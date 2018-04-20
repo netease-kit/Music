@@ -400,8 +400,9 @@
     option.acousticEchoCanceler = NIMAVChatAcousticEchoCancelerDefault;
     option.preferredVideoEncoder = NIMNetCallVideoCodecHardware;
     option.videoCaptureParam.videoCaptureOrientation = NIMVideoOrientationPortrait;
-    option.audioHowlingSuppress = YES;
-    option.preferHDAudio =  YES;
+    option.audioHowlingSuppress = NO;//一定要关闭
+    option.voiceDetect = NO;//一定要关闭
+    option.preferHDAudio =  YES;//高清音乐开启时的必选项
     option.scene = NIMAVChatSceneHighQualityMusic;//高清音乐场景
     
     NIMNetCallVideoCaptureParam *param = [[NIMNetCallVideoCaptureParam alloc] init];
