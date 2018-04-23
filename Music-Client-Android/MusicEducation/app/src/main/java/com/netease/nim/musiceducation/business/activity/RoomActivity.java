@@ -75,6 +75,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.netease.nimlib.sdk.avchat.constant.AVChatAudioEffectMode.SDK_BUILTIN;
 import static com.netease.nimlib.sdk.avchat.constant.AVChatControlCommand.NOTIFY_VIDEO_OFF;
 import static com.netease.nimlib.sdk.avchat.constant.AVChatControlCommand.NOTIFY_VIDEO_ON;
 
@@ -608,7 +609,20 @@ public class RoomActivity extends UI implements DoodleView.FlipListener {
         AVChatManager.getInstance().setChannelProfile(AVChatChannelProfile.CHANNEL_PROFILE_HIGH_QUALITY_MUSIC);
         //设置通话可选参数
         AVChatParameters parameters = new AVChatParameters();
+
+        // 高清音质
         parameters.set(AVChatParameters.KEY_AUDIO_HIGH_QUALITY, true);
+        // 啸叫抑制..关
+        parameters.set(AVChatParameters.KEY_AUDIO_HOWLING_SUPPRESS, false);
+        // AGC 自动增益...SDK
+        parameters.set(AVChatParameters.KEY_AUDIO_EFFECT_AUTOMATIC_GAIN_CONTROL, SDK_BUILTIN);
+        // AEC 回音抑制...SDK
+        parameters.set(AVChatParameters.KEY_AUDIO_EFFECT_ACOUSTIC_ECHO_CANCELER, SDK_BUILTIN);
+        // NS 降噪...SDK
+        parameters.set(AVChatParameters.KEY_AUDIO_EFFECT_NOISE_SUPPRESSOR, SDK_BUILTIN);
+        // DTX 人声检测...关
+        parameters.set(AVChatParameters.KEY_AUDIO_DTX_ENABLE, false);
+
         AVChatManager.getInstance().setParameters(parameters);
         //视频通话设置
         AVChatManager.getInstance().enableVideo();
