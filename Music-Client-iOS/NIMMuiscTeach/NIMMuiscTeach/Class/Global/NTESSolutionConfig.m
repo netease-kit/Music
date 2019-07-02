@@ -25,7 +25,8 @@
     self = [super init];
     if(self)
     {
-        _appKey  = @"c2b388726a789f58857501e9bafec3f5";
+        NSAssert(NO, @"请去官网获取APP appkey");
+        _appKey  = @"";
         _appHost = @"https://app.netease.im/appdemo/music/";
     }
     return self;

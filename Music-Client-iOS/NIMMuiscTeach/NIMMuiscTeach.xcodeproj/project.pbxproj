@@ -74,7 +74,22 @@
 		A16BFC15207B51BB00DA1D16 /* ijksdl_stdinc.c in Sources */ = {isa = PBXBuildFile; fileRef = A16BFBFD207B51BB00DA1D16 /* ijksdl_stdinc.c */; };
 		A16BFC16207B51BB00DA1D16 /* ijksdl_mutex.c in Sources */ = {isa = PBXBuildFile; fileRef = A16BFC00207B51BB00DA1D16 /* ijksdl_mutex.c */; };
 		A16BFC17207B51BB00DA1D16 /* ijksdl_timer.c in Sources */ = {isa = PBXBuildFile; fileRef = A16BFC04207B51BB00DA1D16 /* ijksdl_timer.c */; };
+		E65BAB8E22A12220002E8979 /* NTESModalSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E65BAB8D22A12220002E8979 /* NTESModalSheet.m */; };
+		E66E4E5922C47110006B1A02 /* nim_strip_archs.sh in Resources */ = {isa = PBXBuildFile; fileRef = E66E4E5822C47110006B1A02 /* nim_strip_archs.sh */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E6EEE86722B0B80100621EB0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		326B99C9CE721481CEF71AC3 /* Pods-NIMMuiscTeach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIMMuiscTeach.release.xcconfig"; path = "Pods/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +230,9 @@
 		A16BFC03207B51BB00DA1D16 /* ijksdl_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_error.h; sourceTree = "<group>"; };
 		A16BFC04207B51BB00DA1D16 /* ijksdl_timer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ijksdl_timer.c; sourceTree = "<group>"; };
 		C93B7F5A8008090416165750 /* Pods-NIMMuiscTeach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIMMuiscTeach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach.debug.xcconfig"; sourceTree = "<group>"; };
+		E65BAB8C22A12220002E8979 /* NTESModalSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESModalSheet.h; sourceTree = "<group>"; };
+		E65BAB8D22A12220002E8979 /* NTESModalSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESModalSheet.m; sourceTree = "<group>"; };
+		E66E4E5822C47110006B1A02 /* nim_strip_archs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = nim_strip_archs.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +403,8 @@
 				838137762073562D008F6BAD /* NTESHallwayViewController.h */,
 				838137772073562D008F6BAD /* NTESHallwayViewController.m */,
 				838137782073562D008F6BAD /* NTESHallwayViewController.xib */,
+				E65BAB8C22A12220002E8979 /* NTESModalSheet.h */,
+				E65BAB8D22A12220002E8979 /* NTESModalSheet.m */,
 			);
 			path = Hallway;
 			sourceTree = "<group>";
@@ -410,6 +430,7 @@
 		83AE41D92064EEC600B27D78 /* NIMMuiscTeach */ = {
 			isa = PBXGroup;
 			children = (
+				E66E4E5822C47110006B1A02 /* nim_strip_archs.sh */,
 				8361AF12206E274700BDB082 /* Class */,
 				83AE41E82064EEC600B27D78 /* Info.plist */,
 				83AE41E92064EEC600B27D78 /* main.m */,
@@ -593,8 +614,10 @@
 				83AE41D32064EEC600B27D78 /* Sources */,
 				83AE41D42064EEC600B27D78 /* Frameworks */,
 				83AE41D52064EEC600B27D78 /* Resources */,
-				12EF54BB9AF0222218319500 /* [CP] Embed Pods Frameworks */,
 				7D9E41436314DC54CA757DCD /* [CP] Copy Pods Resources */,
+				E6EEE86722B0B80100621EB0 /* Embed Frameworks */,
+				E66E4E5722C46DC2006B1A02 /* ShellScript */,
+				E8F37723DDC4F1BD4301C017 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -654,6 +677,7 @@
 				8361AF51206E274800BDB082 /* NTESLoginViewController.xib in Resources */,
 				8381377A2073562D008F6BAD /* NTESHallwayViewController.xib in Resources */,
 				A16BFB4A207A0BF200DA1D16 /* Assets.xcassets in Resources */,
+				E66E4E5922C47110006B1A02 /* nim_strip_archs.sh in Resources */,
 				8361AF53206E274800BDB082 /* NTESRegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,38 +685,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12EF54BB9AF0222218319500 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7D9E41436314DC54CA757DCD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach-resources.sh",
 				"${PODS_ROOT}/NIMSDK/NIMAVChat/Resources/NMCVideoFilter.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NMCVideoFilter.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D1BCADF852A14C2286D67DBA /* [CP] Check Pods Manifest.lock */ = {
@@ -711,6 +721,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E66E4E5722C46DC2006B1A02 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"${SRCROOT}/NIMMuiscTeach/nim_strip_archs.sh\"\n";
+		};
+		E8F37723DDC4F1BD4301C017 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach-frameworks.sh",
+				"${PODS_ROOT}/NIMSDK/NIMSDK/NIMSDK.framework",
+				"${PODS_ROOT}/NIMSDK/NIMAVChat/NIMAVChat.framework",
+				"${PODS_ROOT}/NIMSDK/NIMAVChat/NMC.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIMSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIMAVChat.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMC.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NIMMuiscTeach/Pods-NIMMuiscTeach-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -761,6 +814,7 @@
 				8361AF4B206E274800BDB082 /* NTESQueryRoomInfoTask.m in Sources */,
 				8361AF47206E274800BDB082 /* NTESSolutionConfig.m in Sources */,
 				837D801520746E7800550340 /* NTESStudent.m in Sources */,
+				E65BAB8E22A12220002E8979 /* NTESModalSheet.m in Sources */,
 				A153974920710A70002802EE /* NTESWhiteboardPoint.m in Sources */,
 				A106E355207B5806008A50AF /* renderer_yuv420p.c in Sources */,
 				A106E358207B5806008A50AF /* renderer.c in Sources */,
@@ -901,6 +955,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 569GNZ5392;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NIMMuiscTeach",
+					"\"$(SRCROOT)/../NIMAVChat/NIMAVChat/Vendors/Libs\"",
+				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/NIMMuiscTeach/Class/Global/NIMMuiscTeach-Prefix.pch";
 				INFOPLIST_FILE = NIMMuiscTeach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -923,6 +982,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 569GNZ5392;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NIMMuiscTeach",
+					"\"$(SRCROOT)/../NIMAVChat/NIMAVChat/Vendors/Libs\"",
+				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/NIMMuiscTeach/Class/Global/NIMMuiscTeach-Prefix.pch";
 				INFOPLIST_FILE = NIMMuiscTeach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

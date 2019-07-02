@@ -128,17 +128,32 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    self.musicPage.left = self.view.left + 16 * UIScreenWidthScale;
-    self.musicPage.width = self.view.width - 32 * UIScreenWidthScale;
+    [super viewDidLayoutSubviews];
+    
+    self.controlPanel.frame = CGRectMake(0, 0, self.view.width, self.view.height - TopHeight);
+    self.controlPanel.bottom = self.view.height;
+    
+    self.pageNumLabel.height = 20 * UIScreenWidthScale;
+    self.pageNumLabel.top = self.view.height - self.controlPanel.btnH - self.pageNumLabel.height;
+    self.pageNumLabel.width = 50 * UIScreenWidthScale;
+    self.pageNumLabel.centerX = self.view.centerX;
+    
     self.musicPage.top = TopHeight + 20 * UIScreenWidthScale;
-    self.musicPage.height = 1.25f * self.musicPage.width;
+    self.musicPage.height = self.pageNumLabel.top - self.musicPage.top - 1;
+    self.musicPage.width = self.musicPage.height / 1.25f;
+    self.musicPage.centerX = self.view.width / 2;
+
+    if (self.musicPage.width > self.view.width) // 需要
+    {
+        self.musicPage.width = self.view.width;
+        self.musicPage.height = self.musicPage.width * 1.25;
+        self.musicPage.centerX = self.view.width / 2;
+        // 重新调整页码的位置
+        self.pageNumLabel.top = self.musicPage.bottom + 2;
+    }
+    
     
     self.demonView.frame = self.musicPage.frame;
-    
-    self.pageNumLabel.top = self.musicPage.bottom + 6;
-    self.pageNumLabel.width = 50 * UIScreenWidthScale;
-    self.pageNumLabel.height = 20 * UIScreenWidthScale;
-    self.pageNumLabel.centerX = self.view.centerX;
 }
 
 - (void)addDelegation {
@@ -181,7 +196,7 @@
             [self.selfStatusView.avatar sd_setImageWithURL:url];
         }
         switch (status) {
-            case NIMNetCallNetStatusVeryGood:
+            case NIMNetCallNetStatusGood:
             {
                 if ([user isEqualToString:self.teachId]) {
                         [self.selfStatusView.netStatusBtn setImage:[UIImage imageNamed:@"room_net_status_good"] forState:UIControlStateNormal];
@@ -197,7 +212,7 @@
                 }
             }
                 break;
-            case NIMNetCallNetStatusGood:
+            case NIMNetCallNetStatusPoor:
             {
                 if ([user isEqualToString:self.teachId]) {
                     [self.selfStatusView.netStatusBtn setImage:[UIImage imageNamed:@"room_net_status_normal"] forState:UIControlStateNormal];
@@ -214,8 +229,7 @@
             }
                 break;
             case NIMNetCallNetStatusBad:
-            case NIMNetCallNetStatusPoor:
-            case NIMNetCallNetStatusVeryBad:
+            case NIMNetCallNetStatusVideoClosed:
             {
                 if ([user isEqualToString:self.teachId]) {
                     [self.selfStatusView.netStatusBtn setImage:[UIImage imageNamed:@"room_net_status_bad"] forState:UIControlStateNormal];
@@ -237,7 +251,7 @@
     }
     else {
         switch (status) {
-            case NIMNetCallNetStatusVeryGood:
+            case NIMNetCallNetStatusGood:
             {
                 if ([user isEqualToString:self.myUid]) {
                     [self.selfStatusView.netStatusBtn setImage:[UIImage imageNamed:@"room_net_status_good"] forState:UIControlStateNormal];
@@ -245,7 +259,7 @@
                 }
             }
                 break;
-            case NIMNetCallNetStatusGood:
+            case NIMNetCallNetStatusPoor:
             {
                 if ([user isEqualToString:self.myUid]) {
                     [self.selfStatusView.netStatusBtn setImage:[UIImage imageNamed:@"room_net_status_normal"] forState:UIControlStateNormal];
@@ -254,8 +268,6 @@
             }
                 break;
             case NIMNetCallNetStatusBad:
-            case NIMNetCallNetStatusPoor:
-            case NIMNetCallNetStatusVeryBad:
             {
                 if ([user isEqualToString:self.myUid]) {
                     [self.selfStatusView.netStatusBtn setImage:[UIImage imageNamed:@"room_net_status_bad"] forState:UIControlStateNormal];
@@ -413,6 +425,10 @@
         _isStuJoined = YES;
         [self syncVideoMode:self.videoMode];
         [[NIMAVChatSDK sharedSDK].netCallManager setMute:self.isMuted];
+        
+        if ([self.stuStatusView.netStatusBtn.titleLabel.text isEqualToString:@"离线"]) {
+            [self.stuStatusView.netStatusBtn setTitle:@"在线" forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -813,6 +829,7 @@
         titleStr = @"退出";
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:self.selfStatusView];
         self.navigationItem.leftBarButtonItems = @[leftItem];
+        [self.selfStatusView.netStatusBtn setTitle:@"" forState:UIControlStateNormal];
     }
     else {
         titleStr = @"下课";
@@ -853,6 +870,8 @@
             page.layer.shadowOffset = CGSizeMake(0, 0);
             page.layer.shadowOpacity = 0.5;
             page.layer.shadowRadius = 6.0;
+            page.layer.masksToBounds = YES;
+            
             page;
         });
     }
@@ -884,6 +903,7 @@
     }
     return _pageNumLabel;
 }
+
 
 - (NTESControlPanel *)controlPanel {
     if (!_controlPanel) {

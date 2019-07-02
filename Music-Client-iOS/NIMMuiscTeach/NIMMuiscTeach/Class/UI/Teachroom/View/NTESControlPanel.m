@@ -73,6 +73,10 @@
        }];
 }
 
+- (CGFloat)btnH {
+    return 60 * UIScreenWidthScale;
+}
+
 #pragma mark - Touch
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {

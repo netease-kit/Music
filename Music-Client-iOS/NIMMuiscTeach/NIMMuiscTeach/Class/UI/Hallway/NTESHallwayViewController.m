@@ -13,6 +13,7 @@
 #import "NTESStudent.h"
 #import "NTESLoginViewController.h"
 #import "NTESClassroomViewController.h"
+#import "NTESModalSheet.h"
 
 @interface NTESHallwayViewController () <NIMSystemNotificationManagerDelegate>
 {
@@ -238,61 +239,71 @@
 
 - (void)enterClassroom
 {
-    __weak typeof(self)weakSelf = self;
-    if (_role == NTESUserRoleTeacher)
-    {
-        //老师的话进入房间需要预定一下
-        NIMNetCallMeeting *meeting = [self makeMeeting];
-        meeting.name = self.classroom.roomId;
-        [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nullable error) {
-            if (!error || error.code == NIMRemoteErrorCodeExist)
-            {
-                //房间已存在也算预定成功，直接进入
-                [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nullable error) {
-                    if (!error)
-                    {
-                        [weakSelf.view makeToast:@"加入音视频房间成功，在新页面启动白板" duration:2.0 position:CSToastPositionCenter];
-                        weakSelf.classroom.meeting = meeting;
-                        NTESClassroomViewController *classroomVC = [[NTESClassroomViewController alloc] initWithClassroom:weakSelf.classroom andRole:_role];
-                        [weakSelf.navigationController pushViewController:classroomVC animated:YES];
-                    }
-                    else
-                    {
-                        [weakSelf showErrorTip:error];
-                    }
-                    
-                }];
-            }
-            else
-            {
-                [weakSelf showErrorTip:error];
-            }
+    if (_role == NTESUserRoleTeacher) {
+        __weak typeof(self) weakSelf = self;
+        [NTESModalSheet showOnView:self.view selected:^(NSInteger index) {
+            [weakSelf doTeacherEnterRoomWithAudioQuality:(NTESAudioQuality)index];
         }];
-    }
-    else
-    {
-        //学生进入的话直接加入，注意 404 判断
-        NIMNetCallMeeting *meeting = [self makeMeeting];
-        meeting.name = self.classroom.roomId;
-        [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nullable error) {
-            if (!error)
-            {
-                [weakSelf.view makeToast:@"加入音视频房间成功，在新页面启动白板" duration:2.0 position:CSToastPositionCenter];
-                weakSelf.classroom.meeting = meeting;
-                NTESClassroomViewController *classroomVC = [[NTESClassroomViewController alloc] initWithClassroom:weakSelf.classroom andRole:_role];
-                [weakSelf.navigationController pushViewController:classroomVC animated:YES];
-            }
-            else if (error.code == NIMRemoteErrorCodeNotExist)
-            {
-                [weakSelf.view makeToast:@"请等老师先进入教室哦" duration:2.0 position:CSToastPositionCenter];
-            }
-            else
-            {
-                [weakSelf showErrorTip:error];
-            }
-        }];
+    } else {
+        [self doStudentEnterRoom];
     }
 }
+
+- (void)doTeacherEnterRoomWithAudioQuality:(NTESAudioQuality)audioQuality {
+    //老师的话进入房间需要预定一下
+    __weak typeof(self)weakSelf = self;
+    NIMNetCallMeeting *meeting = [self makeMeetingWithAudioQuality:audioQuality];
+    meeting.name = self.classroom.roomId;
+    [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nullable error) {
+        if (!error || error.code == NIMRemoteErrorCodeExist)
+        {
+            //房间已存在也算预定成功，直接进入
+            [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nullable error) {
+                if (!error)
+                {
+                    [weakSelf.view makeToast:@"加入音视频房间成功，在新页面启动白板" duration:2.0 position:CSToastPositionCenter];
+                    weakSelf.classroom.meeting = meeting;
+                    NTESClassroomViewController *classroomVC = [[NTESClassroomViewController alloc] initWithClassroom:weakSelf.classroom andRole:_role];
+                    [weakSelf.navigationController pushViewController:classroomVC animated:YES];
+                }
+                else
+                {
+                    [weakSelf showErrorTip:error];
+                }
+                
+            }];
+        }
+        else
+        {
+            [weakSelf showErrorTip:error];
+        }
+    }];
+}
+
+- (void)doStudentEnterRoom {
+    //学生进入的话直接加入，注意 404 判断
+    __weak typeof(self)weakSelf = self;
+    NIMNetCallMeeting *meeting = [self makeMeetingWithAudioQuality:NTESAudioQualityHDMusic];
+    meeting.name = self.classroom.roomId;
+    [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nullable error) {
+        if (!error)
+        {
+            [weakSelf.view makeToast:@"加入音视频房间成功，在新页面启动白板" duration:2.0 position:CSToastPositionCenter];
+            weakSelf.classroom.meeting = meeting;
+            NTESClassroomViewController *classroomVC = [[NTESClassroomViewController alloc] initWithClassroom:weakSelf.classroom andRole:_role];
+            [weakSelf.navigationController pushViewController:classroomVC animated:YES];
+        }
+        else if (error.code == NIMRemoteErrorCodeNotExist)
+        {
+            [weakSelf.view makeToast:@"请等老师先进入教室哦" duration:2.0 position:CSToastPositionCenter];
+        }
+        else
+        {
+            [weakSelf showErrorTip:error];
+        }
+    }];
+}
+
 
 - (IBAction)teacherLoginTip:(id)sender
 {
@@ -378,13 +389,14 @@
     return _refreshBtn;
 }
 
-- (NIMNetCallMeeting *)makeMeeting
+- (NIMNetCallMeeting *)makeMeetingWithAudioQuality:(NTESAudioQuality)audioQuality
 {
     NIMNetCallMeeting *meeting = [[NIMNetCallMeeting alloc] init];
     meeting.type = NIMNetCallMediaTypeVideo;
     meeting.actor = YES;
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
-    [self fillUserSetting:option];
+    [self fillUserSetting:option audioQuaility:audioQuality];
+    
     option.videoCaptureParam.videoCrop = NIMNetCallVideoCrop16x9;
     meeting.option = option;
     
@@ -393,18 +405,31 @@
 
 
 - (void)fillUserSetting:(NIMNetCallOption *)option
+          audioQuaility:(NTESAudioQuality)audioQuality
 {
     option.autoRotateRemoteVideo = YES;
-    option.serverRecordAudio     = NO;
-    option.serverRecordVideo     = NO;
     option.acousticEchoCanceler = NIMAVChatAcousticEchoCancelerDefault;
     option.preferredVideoEncoder = NIMNetCallVideoCodecHardware;
     option.videoCaptureParam.videoCaptureOrientation = NIMVideoOrientationPortrait;
-    option.audioHowlingSuppress = NO;//一定要关闭
     option.voiceDetect = NO;//一定要关闭
-    option.preferHDAudio =  YES;//高清音乐开启时的必选项
-    option.scene = NIMAVChatSceneHighQualityMusic;//高清音乐场景
     
+    switch (audioQuality) {
+        case NTESAudioQualityNormal:
+            option.preferHDAudio =  NO;//高清音乐开启时的必选项
+            option.scene = NIMAVChatSceneDefault;//高清音乐场景
+            break;
+        case NTESAudioQualityHD:
+            option.preferHDAudio =  YES;//高清音乐开启时的必选项
+            option.scene = NIMAVChatSceneDefault;//高清音乐场景
+            break;
+        case NTESAudioQualityHDMusic:
+            option.preferHDAudio =  YES;//高清音乐开启时的必选项
+            option.scene = NIMAVChatSceneHighQualityMusic;//高清音乐场景
+            break;
+        default:
+            break;
+    }
+
     NIMNetCallVideoCaptureParam *param = [[NIMNetCallVideoCaptureParam alloc] init];
     param.preferredVideoQuality = NIMNetCallVideoQualityDefault;
     param.startWithBackCamera = NO;

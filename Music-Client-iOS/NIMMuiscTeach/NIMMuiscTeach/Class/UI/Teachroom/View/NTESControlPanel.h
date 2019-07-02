@@ -41,6 +41,8 @@ typedef NS_ENUM(NSInteger, NTESVideoMode) {
 @property(nonatomic, strong) UIButton *prePageBtn;
 @property(nonatomic, strong) UIButton *nextPageBtn;
 @property(nonatomic, strong) UIView *coverView;
+@property(nonatomic, readonly) CGFloat btnH;
+
 
 - (instancetype)initWithFrame:(CGRect)frame andCurrentPage:(NSInteger)currPage;
 
